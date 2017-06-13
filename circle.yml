@@ -21,4 +21,6 @@ dependencies:
 
 test:
   override:
+    - mix ecto.create
+    - mix ecto.migrate
     - mix test
