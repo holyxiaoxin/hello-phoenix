@@ -5,4 +5,4 @@ cd $HOME/$CIRCLE_PROJECT_REPONAME
 
 mix test
 
-mix dialyzer
+# mix dialyzer

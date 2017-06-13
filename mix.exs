@@ -41,6 +41,7 @@ defmodule HelloPhoenix.Mixfile do
      {:espec_phoenix, "~> 0.6.8", only: :test},
      {:earmark, "~> 0.1", only: :dev},
      {:ex_doc, "~> 0.7", only: :dev},
+     {:dialyxir, "~> 0.5", only: [:dev], runtime: false},
      {:cowboy, "~> 1.0"}]
   end
 

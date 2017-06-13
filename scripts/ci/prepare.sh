@@ -53,7 +53,7 @@ if [ ! -e $DIALYZER_PATH/bin/elixir ]; then
   echo "Installing dialyxir...installing archive "
   yes | mix archive.install
   echo "Installing dialyxir... analyzing base modules.  This will take awhile."
-  mix dialyzer.plt
+  # mix dialyzer.plt
   echo "Installing dialyxir...done "
 
   # Symlink to make it easier to setup PATH to run tests
