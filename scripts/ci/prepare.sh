@@ -46,6 +46,8 @@ echo "Installing dialyxir... "
 if [ ! -e $DIALYZER_PATH/bin/elixir ]; then
   git clone https://github.com/jeremyjh/dialyxir $DIALYZER_PATH
   cd $DIALYZER_PATH
+  echo "Installing hex..."
+  mix local.hex --force
   echo "Installing dialyxir...building archive "
   mix archive.build
   echo "Installing dialyxir...installing archive "
