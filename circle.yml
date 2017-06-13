@@ -1,26 +1,34 @@
 machine:
+  services:
+    - docker
   environment:
-    PATH: "$HOME/.asdf/bin:$HOME/.asdf/shims:$PATH"
-    MIX_ENV: test
+    CONTAINER: holyxiaoxin/hello_phoenix
+    VERSION: 0.0.1
 
 dependencies:
-  pre:
-    - if ! asdf | grep version; then git clone https://github.com/asdf-vm/asdf.git ~/.asdf; fi
-    - asdf plugin-add erlang https://github.com/asdf-vm/asdf-erlang.git || true
-    - asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git || true
-    - asdf install
-    - mix local.hex --force
-    - mix local.rebar --force
+
   override:
-    - mix deps.get
+    - docker info
+    - if [[ -e ~/docker/image.tar ]]; then docker load -i ~/docker/image.tar; fi
+    - docker build -t $CONTAINER .
+    - mkdir -p ~/docker; docker save $CONTAINER > ~/docker/image.tar
+
   cache_directories:
-    - ~/.asdf
+    - ~/docker
+    - ~/dependencies
     - ~/.mix
-    - deps
     - _build
+    - deps
+    - ~/.dialyzer_core*
 
 test:
   override:
-    - mix ecto.create
-    - mix ecto.migrate
-    - mix espec
+    - docker run $CONTAINER /bin/bash ./scripts/ci/test.sh
+
+# deployment:
+#   publish:
+#     branch: master
+#     commands:
+#       - docker run $CONTAINER /bin/bash ./scripts/ci/publish_hex.sh
+#       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+#       - docker push $CONTAINER

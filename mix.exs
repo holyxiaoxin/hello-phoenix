@@ -39,6 +39,8 @@ defmodule HelloPhoenix.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
      {:espec_phoenix, "~> 0.6.8", only: :test},
+     {:earmark, "~> 0.1", only: :dev},
+     {:ex_doc, "~> 0.7", only: :dev},
      {:cowboy, "~> 1.0"}]
   end
 
