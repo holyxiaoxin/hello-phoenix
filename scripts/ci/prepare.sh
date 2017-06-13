@@ -5,7 +5,7 @@ cd $INSTALL_PATH
 
 echo "Installing erlang... "
 if [ ! -e $ERLANG_PATH/bin/erl ]; then
-  curl -O http://www.erlang.org/download/otp_src_$ERLANG_VERSION.tar.gz
+  curl -OL http://www.erlang.org/download/otp_src_$ERLANG_VERSION.tar.gz
   tar xzf otp_src_$ERLANG_VERSION.tar.gz
   cd $ERLANG_PATH
   echo "Installing erlang... configure "
@@ -21,7 +21,7 @@ if [ ! -e $ERLANG_PATH/bin/erl ]; then
   export MAKEFLAGS=-j
   make install
   rm $HOME/dependencies/otp_src_$ERLANG_VERSION.tar.gz
-  
+
   # Symlink to make it easier to setup PATH to run tests
   ln -sf $ERLANG_PATH $INSTALL_PATH/erlang
 fi
