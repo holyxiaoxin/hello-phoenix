@@ -5,7 +5,6 @@ machine:
 
 dependencies:
   pre:
-    - mkdir testcd; cd testcd; pwd
     - if ! asdf | grep version; then git clone https://github.com/asdf-vm/asdf.git ~/.asdf; fi
     - asdf plugin-add erlang https://github.com/asdf-vm/asdf-erlang.git || true
     - asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git || true
