@@ -1,4 +1,5 @@
 defmodule HelloPhoenix.User do
+  @moduledoc false
   use HelloPhoenix.Web, :model
 
   schema "users" do

@@ -11,6 +11,7 @@ defmodule HelloPhoenix.Mixfile do
      start_permanent: Mix.env == :prod,
      aliases: aliases(),
      preferred_cli_env: [espec: :test],
+     dialyzer: [plt_add_deps: :app_tree, ignore_warnings: "dialyzer.ignore-warnings"],
      deps: deps()]
   end
 
@@ -39,6 +40,8 @@ defmodule HelloPhoenix.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
      {:espec_phoenix, "~> 0.6.8", only: :test},
+     {:credo, "~> 0.8", only: [:dev, :test], runtime: false},
+     {:dialyxir, "~> 0.5", only: [:dev], runtime: false},
      {:cowboy, "~> 1.0"}]
   end
 
