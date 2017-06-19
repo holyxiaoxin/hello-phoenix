@@ -5,11 +5,11 @@ jobs:
       - image: yeongsheng/alpine-elixir-circleci:latest
       # - image: circleci/node:latest
       # - image: circleci/elixir:latest
-      - image: postgres:9.6.2
-        environment:
-          POSTGRES_DB: hello_phoenix_test
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
+      # - image: postgres:9.6.2
+      #   environment:
+      #     POSTGRES_DB: hello_phoenix_test
+      #     POSTGRES_USER: postgres
+      #     POSTGRES_PASSWORD: postgres
 
     working_directory: /home/circleci/hello_phoenix
     # working_directory: ~/hello_phoenix
