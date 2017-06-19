@@ -1,9 +1,9 @@
 version: 2
 jobs:
   build:
-    working_directory: /opt/app/hello_phoenix
     docker:
       - image: circleci/node:latest
+    working_directory: /home/ubuntu/hello_phoenix
     steps:
       - checkout
       - run: echo "hello world"
