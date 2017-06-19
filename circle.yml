@@ -5,7 +5,7 @@ jobs:
       - image: yeongsheng/alpine-elixir-circleci:latest
     working_directory: /home/circleci/hello_phoenix
     environment:
-      - HOME: "/home/circleci/hello_phoenix"
+      - HOME: "/home/circleci"
     steps:
       - run: echo $HOME
       #     name: Setting environment variables
