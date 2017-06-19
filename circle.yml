@@ -2,8 +2,9 @@ version: 2
 jobs:
   build:
     docker:
-      - image: yeongsheng/alpine-elixir-circleci:latest
+      # - image: yeongsheng/alpine-elixir-circleci:latest
       # - image: circleci/node:latest
+      - image: circleci/elixir:latest
     working_directory: /home/circleci/hello_phoenix
     # working_directory: ~/hello_phoenix
     environment:
