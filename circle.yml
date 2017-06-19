@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/hello_phoenix
+    working_directory: /opt/app/hello_phoenix
     docker:
       - image: circleci/node:latest
     steps:
