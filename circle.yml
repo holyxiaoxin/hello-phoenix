@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/hello_phoenix
     docker:
-      - image: circleci/node:latest
+      - image: yeongsheng/alpine-elixir-circleci:latest
     steps:
       - checkout
       - run: echo "hello world"
