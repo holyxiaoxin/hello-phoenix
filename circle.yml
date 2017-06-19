@@ -6,16 +6,16 @@ jobs:
     working_directory: /home/circleci/hello_phoenix
     steps:
       - run:
-        name: Setting environment variables
-        environment:
-          HOME: /home/circleci/hello_phoenix
+          name: Setting environment variables
+          environment:
+            HOME: /home/circleci/hello_phoenix
       - checkout
       # - run: echo "hello world"
 
 
 # machine:
-#   environment:
-#     PATH: "$HOME/.asdf/bin:$HOME/.asdf/shims:$PATH"
+  # environment:
+  #   PATH: "$HOME/.asdf/bin:$HOME/.asdf/shims:$PATH"
 #     MIX_ENV: test
 #
 # dependencies:
