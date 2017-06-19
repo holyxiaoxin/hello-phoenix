@@ -8,7 +8,7 @@ jobs:
       - run:
         name: Setting environment variables
         environment:
-          - HOME: /home/circleci/hello_phoenix
+          HOME: /home/circleci/hello_phoenix
       - checkout
       # - run: echo "hello world"
 
