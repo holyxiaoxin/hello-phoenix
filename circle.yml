@@ -2,19 +2,26 @@ version: 2
 jobs:
   build:
     docker:
-      # - image: yeongsheng/alpine-elixir-circleci:latest
+      - image: yeongsheng/alpine-elixir-circleci:latest
       # - image: circleci/node:latest
-      - image: circleci/elixir:latest
+      # - image: circleci/elixir:latest
       - image: postgres:9.6.2
         environment:
           POSTGRES_DB: hello_phoenix_test
-    # working_directory: /home/circleci/hello_phoenix
-    working_directory: ~/hello_phoenix
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+
+    working_directory: /home/circleci/hello_phoenix
+    # working_directory: ~/hello_phoenix
     environment:
       # - PATH: "$HOME/.asdf/bin:$HOME/.asdf/shims:$PATH"
       - MIX_ENV: test
     #   - HOME: "/home/circleci"
     steps:
+      - add_ssh_keys:
+        fingerprints:
+          - "16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48" # rsa
+          - "ad:1c:08:a4:40:e3:6f:9c:f5:66:26:5d:4b:33:5d:8c" # dsa
       - run: echo $HOME
       #     name: Setting environment variables
       #     environment:
