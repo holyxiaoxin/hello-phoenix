@@ -22,20 +22,29 @@ jobs:
       #       HOME: /home/circleci/hello_phoenix
       #     command: checkout
       - checkout
+
       - run: mix local.hex --force
+
       - run: mix local.rebar --force
+
       - restore_cache:
-        keys:
-          - v1-myapp-deps-{{ checksum "mix.exs" }}
-          - v1-myapp-deps-
+          keys:
+            - v1-myapp-deps-{{ checksum "mix.exs" }}
+            - v1-myapp-deps-
+
       - run: mix deps.get
+
       - save_cache:
-        key: v1-myapp-deps-{{ checksum "mix.exs" }}
-        paths:
-          - ~/hello_phoenix/deps
+          key: v1-myapp-deps-{{ checksum "mix.exs" }}
+          paths:
+            - ~/hello_phoenix/deps
+
       - run: mix deps.compile
+
       - run: mix ecto.create
+
       - run: mix ecto.migrate
+
       - run: mix espec
 
 # machine:
