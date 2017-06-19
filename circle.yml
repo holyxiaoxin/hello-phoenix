@@ -7,7 +7,9 @@ jobs:
       - image: circleci/elixir:latest
     # working_directory: /home/circleci/hello_phoenix
     working_directory: ~/hello_phoenix
-    # environment:
+    environment:
+      - PATH: "$HOME/.asdf/bin:$HOME/.asdf/shims:$PATH"
+      - MIX_ENV: test
     #   - HOME: "/home/circleci"
     steps:
       - run: echo $HOME
