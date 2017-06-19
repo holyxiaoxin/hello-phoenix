@@ -1,3 +1,14 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/hello_phoenix
+    docker:
+      - image: circleci/elixir:latest
+    steps:
+      - checkout
+      - run: echo "hello world"
+
+
 # machine:
 #   environment:
 #     PATH: "$HOME/.asdf/bin:$HOME/.asdf/shims:$PATH"
@@ -24,12 +35,3 @@
 #     - mix ecto.create
 #     - mix ecto.migrate
 #     - mix espec
-version: 2
-jobs:
-   build:
-     working_directory: ~/hello_phoenix
-     docker:
-       - image: circleci/elixir:latest
-     steps:
-       - checkout
-       - run: echo "hello world"
