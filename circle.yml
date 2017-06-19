@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:latest
+      - image: yeongsheng/alpine-elixir-circleci:latest
     working_directory: /home/circleci/hello_phoenix
     steps:
       - checkout
