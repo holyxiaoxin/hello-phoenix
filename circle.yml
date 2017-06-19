@@ -17,7 +17,6 @@ jobs:
       - checkout
       - run: echo "hello world"
 
-
 # machine:
   # environment:
   #   PATH: "$HOME/.asdf/bin:$HOME/.asdf/shims:$PATH"
