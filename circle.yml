@@ -39,7 +39,17 @@ jobs:
           paths:
             - ~/hello_phoenix/deps
 
+      - restore_cache:
+          keys:
+            - v1-myapp-build-{{ checksum "mix.exs" }}
+            - v1-myapp-build-
+
       - run: mix deps.compile
+
+      - save_cache:
+          key: v1-myapp-build-{{ checksum "mix.exs" }}
+          paths:
+            - ~/hello_phoenix/_build
 
       - run: mix ecto.create
 
