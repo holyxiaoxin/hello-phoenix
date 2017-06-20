@@ -11,6 +11,10 @@ jobs:
 
       - checkout
 
+      - run:
+          command: /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
+          background: true
+
       - run: mix local.hex --force
 
       - run: mix local.rebar --force
