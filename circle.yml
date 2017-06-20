@@ -6,7 +6,7 @@ jobs:
     environment:
       - MIX_ENV: test
       - WORKING_DIRECTORY: ~/hello_phoenix
-    working_directory: ~/$WORKING_DIRECTORY
+    working_directory: echo "~/$WORKING_DIRECTORY"
     steps:
       - checkout
 
@@ -24,7 +24,7 @@ jobs:
       - save_cache:
           key: v1-myapp-deps-{{ checksum "mix.exs" }}
           paths:
-            - ~/$WORKING_DIRECTORY/deps
+            - echo "~/$WORKING_DIRECTORY/deps"
 
       - restore_cache:
           keys:
@@ -36,7 +36,7 @@ jobs:
       - save_cache:
           key: v1-myapp-build-{{ checksum "mix.exs" }}
           paths:
-            - ~/$WORKING_DIRECTORY/_build
+            - echo "~/$WORKING_DIRECTORY/_build"
 
       - run: mix ecto.create
 
