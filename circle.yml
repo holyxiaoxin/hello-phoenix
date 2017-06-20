@@ -5,8 +5,6 @@ jobs:
       - image: yeongsheng/alpine-elixir-circleci:latest
     environment:
       - MIX_ENV: test
-      # - BASH_ENV: ~/.env
-      # - WORKING_DIRECTORY: ~/hello_phoenix
     working_directory: ~/hello_phoenix
     steps:
       - run: echo $HOME
@@ -28,7 +26,6 @@ jobs:
           key: v1-myapp-deps-{{ checksum "mix.exs" }}
           paths:
             - ~/hello_phoenix/deps
-            # - ~/$(eval echo ${WORKING_DIRECTORY})/deps
 
       - restore_cache:
           keys:
@@ -41,7 +38,6 @@ jobs:
           key: v1-myapp-build-{{ checksum "mix.exs" }}
           paths:
             - ~/hello_phoenix/_build
-            # - ~/$(eval echo ${WORKING_DIRECTORY})/_build
 
       - run: mix ecto.create
 
