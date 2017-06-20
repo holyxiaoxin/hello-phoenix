@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       - image: yeongsheng/alpine-elixir-circleci:latest
-    working_directory: ~/hello_phoenix
+    working_directory: ~/$CIRCLE_PROJECT_REPONAME
     environment:
       - MIX_ENV: test
     steps:
@@ -23,7 +23,7 @@ jobs:
       - save_cache:
           key: v1-myapp-deps-{{ checksum "mix.exs" }}
           paths:
-            - ~/hello_phoenix/deps
+            - ~/CIRCLE_PROJECT_REPONAME/deps
 
       - restore_cache:
           keys:
@@ -35,7 +35,7 @@ jobs:
       - save_cache:
           key: v1-myapp-build-{{ checksum "mix.exs" }}
           paths:
-            - ~/hello_phoenix/_build
+            - ~/CIRCLE_PROJECT_REPONAME/_build
 
       - run: mix ecto.create
 
