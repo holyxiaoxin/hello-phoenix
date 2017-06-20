@@ -5,8 +5,8 @@ jobs:
       - image: yeongsheng/alpine-elixir-circleci:latest
     environment:
       - MIX_ENV: test
-      - BASH_ENV: ~/.env
-      # - WORKING_DIRECTORY: ~/hello_phoenix
+      # - BASH_ENV: ~/.env
+      - WORKING_DIRECTORY: ~/hello_phoenix
     working_directory: echo "~/$WORKING_DIRECTORY"
     steps:
       - run: echo $HOME
